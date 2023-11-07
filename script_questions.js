@@ -143,17 +143,30 @@ const responseHandler = function (ev, response, index) {
 };
 
 const getQuestion = function (x) {
+  const button = [];
   const q = document.querySelector("#questions");
-  //q.innerHTML = "";
   q.innerHTML = questions[x].question;
-
   const op = document.querySelector("#options");
-  //op.innerHTM = "";
-  op.innerHTML = `<button onclick="responseHandler(event,'${questions[x].correct_answer}',${x})">${questions[x].correct_answer}</button>`;
-
+  op.innerHTML = "";
+  button.push(
+    `<button onclick="responseHandler(event,'${questions[x].correct_answer}',${x})">${questions[x].correct_answer}</button>`
+  );
   for (let y = 0; y < questions[x].incorrect_answers.length; y++) {
-    op.innerHTML += `<button onclick="responseHandler(event,'${questions[x].correct_answer}',${x})">${questions[x].incorrect_answers[y]}</button>`;
+    button.push(
+      `<button onclick="responseHandler(event,'${questions[x].correct_answer}',${x})">${questions[x].incorrect_answers[y]}</button>`
+    );
   }
+  // let correctPosition = correctPosition = Math.round(Math.random() * button.length);;
+  const shuffledArray = button.sort(() => Math.random() - 0.5);
+  for (let y = 0; y < questions[x].incorrect_answers.length + 1; y++) {
+    op.innerHTML += shuffledArray[y];
+  }
+  //op.innerHTM = "";
+  // op.innerHTML = `<button onclick="responseHandler(event,'${questions[x].correct_answer}',${x})">${questions[x].correct_answer}</button>`;
+
+  // for (let y = 0; y < questions[x].incorrect_answers.length; y++) {
+  //   op.innerHTML += `<button onclick="responseHandler(event,'${questions[x].correct_answer}',${x})">${questions[x].incorrect_answers[y]}</button>`;
+  // }
 };
 
 if (questions.length > 0) {
