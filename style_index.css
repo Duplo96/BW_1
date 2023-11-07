@@ -1,0 +1,29 @@
+body {
+  background-color: violet;
+}
+
+h1,
+h2,
+label,
+button {
+  font-family: "outfit";
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 60px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+p,
+li {
+  font-family: "Inter";
+}
+
+#logo {
+  height: 50px;
+}
