@@ -110,15 +110,18 @@ const timer = function () {
   }
 };
 
-const t = setInterval(timer, 1000);
+let t = setInterval(timer, 1000);
 
 let scores = 0;
 
 const cleanQuestion = function () {
   const q = document.querySelector("#questions");
   const op = document.querySelector("#options");
+  const timerCont = document.querySelector(".timer-container");
   q.innerHTML = "";
   op.innerHTML = "";
+  timerCont.style.display = "none";
+  clearInterval(t);
 };
 
 const responseHandler = function (ev, response, index) {
@@ -126,6 +129,9 @@ const responseHandler = function (ev, response, index) {
     scores += 1;
   }
   if (index + 1 < questions.length) {
+    // clearInterval(t);
+    // t = setInterval(timer, 1000);
+    counter = 61;
     getQuestion(index + 1);
   }
   if (index === questions.length - 1) {
