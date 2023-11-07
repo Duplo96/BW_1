@@ -97,3 +97,15 @@
         incorrect_answers: ["Python", "C", "Jakarta"],
       },
     ];
+let punteggio = 0
+    //Devo vedere se il mio input include la risposta corretta del mio array 
+     const responseHandler = function (event,correntAnswer,index){
+        if (event.target.innerText === correntAnswer) {
+          punteggio += 1 
+        }
+        getQuestion (x)
+      }
+
+
+
+    
