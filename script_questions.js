@@ -125,7 +125,7 @@ const cleanQuestion = function () {
   clearInterval(t);
 };
 
-const responseHandler = function (ev, response, index) {
+/*const responseHandler = function (ev, response, index) {
   if (response === ev.target.innerText) {
     scores += 1;
   }
@@ -138,7 +138,7 @@ const responseHandler = function (ev, response, index) {
     const result = document.querySelector("#result");
     result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!`;
   }
-};
+};*/
 
 const getQuestion = function (x) {
   const button = [];
