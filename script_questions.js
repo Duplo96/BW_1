@@ -93,10 +93,45 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
-let scores = 0;
+
 //Devo vedere se il mio input include la risposta corretta del mio array
-const responseHandler = function (event, correctAnswer, index) {
-  if (event.target.innerText === correctAnswer) {
+// const responseHandler = function (event, correctAnswer, index) {
+//   if (event.target.innerText === correctAnswer) {
+
+const timerElem = document.querySelector("#second");
+const anim = document.querySelector("#timer");
+let counter = 60;
+timerElem.innerText = counter;
+
+const timer = function () {
+  if (counter === 60) anim.classList.add("animation");
+  counter -= 1;
+  timerElem.innerText = counter;
+  if (counter === 0) {
+    counter = 60;
+    timerElem.innerText = counter;
+    anim.classList.remove("animation");
+  }
+};
+
+let t = setInterval(timer, 1000);
+
+const cleanQuestion = function () {
+  const q = document.querySelector("#questions");
+  const op = document.querySelector("#options");
+  const timerCont = document.querySelector(".timer-container");
+  const quizCont = document.querySelector(".quiz__counter");
+  quizCont.innerHTML = "";
+  q.innerHTML = "";
+  op.innerHTML = "";
+  timerCont.style.display = "none";
+  clearInterval(t);
+};
+
+let scores = 0;
+
+const responseHandler = function (ev, response, index) {
+  if (response === ev.target.innerText) {
     scores += 1;
   }
   if (index + 1 < questions.length) {
@@ -110,3 +145,29 @@ const responseHandler = function (event, correctAnswer, index) {
   }
   getQuestion(x);
 };
+
+const getQuestion = function (x) {
+  const button = [];
+  const q = document.querySelector("#questions");
+  q.innerHTML = questions[x].question;
+  const op = document.querySelector("#options");
+  op.innerHTML = "";
+  button.push(
+    `<button onclick="responseHandler(event,'${questions[x].correct_answer}',${x})">${questions[x].correct_answer}</button>`
+  );
+  for (let y = 0; y < questions[x].incorrect_answers.length; y++) {
+    button.push(
+      `<button onclick="responseHandler(event,'${questions[x].correct_answer}',${x})">${questions[x].incorrect_answers[y]}</button>`
+    );
+  }
+  const shuffledArray = button.sort(() => Math.random() - 0.5);
+  for (let y = 0; y < questions[x].incorrect_answers.length + 1; y++) {
+    op.innerHTML += shuffledArray[y];
+  }
+  const quizCont = document.querySelector(".quiz__counter");
+  quizCont.innerHTML = `QUESTION ${x + 1} / ${questions.length}`;
+};
+
+if (questions.length > 0) {
+  getQuestion(0);
+}
