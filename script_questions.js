@@ -143,7 +143,6 @@ const responseHandler = function (ev, response, index) {
     const result = document.querySelector("#result");
     result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!`;
   }
-  getQuestion(x);
 };
 
 const getQuestion = function (x) {
