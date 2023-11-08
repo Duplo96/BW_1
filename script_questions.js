@@ -100,20 +100,17 @@ let counter = 60;
 timerElem.innerText = counter;
 
 const timer = function () {
-  if (counter === 60) 
-   anim.classList.add("animation");
+  if (counter === 60) anim.classList.add("animation");
   counter -= 1;
   timerElem.innerText = counter;
   if (counter === 0) {
     counter = 60;
-    //clearInterval(t);
     timerElem.innerText = counter;
     anim.classList.remove("animation");
   }
 };
 
 let t = setInterval(timer, 1000);
-
 let scores = 0;
 
 const cleanQuestion = function () {
@@ -133,8 +130,6 @@ const responseHandler = function (ev, response, index) {
     scores += 1;
   }
   if (index + 1 < questions.length) {
-    // clearInterval(t);
-    // t = setInterval(timer, 1000);
     counter = 61;
     getQuestion(index + 1);
   }
@@ -143,7 +138,6 @@ const responseHandler = function (ev, response, index) {
     const result = document.querySelector("#result");
     result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!`;
   }
-  // console.log(scores);
 };
 
 const getQuestion = function (x) {
@@ -160,20 +154,12 @@ const getQuestion = function (x) {
       `<button onclick="responseHandler(event,'${questions[x].correct_answer}',${x})">${questions[x].incorrect_answers[y]}</button>`
     );
   }
-  // let correctPosition = correctPosition = Math.round(Math.random() * button.length);;
   const shuffledArray = button.sort(() => Math.random() - 0.5);
   for (let y = 0; y < questions[x].incorrect_answers.length + 1; y++) {
     op.innerHTML += shuffledArray[y];
   }
-  //op.innerHTM = "";
-  // op.innerHTML = `<button onclick="responseHandler(event,'${questions[x].correct_answer}',${x})">${questions[x].correct_answer}</button>`;
-
-  // for (let y = 0; y < questions[x].incorrect_answers.length; y++) {
-  //   op.innerHTML += `<button onclick="responseHandler(event,'${questions[x].correct_answer}',${x})">${questions[x].incorrect_answers[y]}</button>`;
-  // }
-  //QUESTION 1 / 10 quiz__counter
   const quizCont = document.querySelector(".quiz__counter");
-  quizCont.innerHTML = `QUESTION ${x+1} / ${questions.length}`;
+  quizCont.innerHTML = `QUESTION ${x + 1} / ${questions.length}`;
 };
 
 if (questions.length > 0) {
