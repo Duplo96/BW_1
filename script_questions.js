@@ -97,3 +97,24 @@
         incorrect_answers: ["Python", "C", "Jakarta"],
       },
     ];
+let scores = 0
+    //Devo vedere se il mio input include la risposta corretta del mio array 
+      const responseHandler = function (event,correctAnswer,index){
+        if (event.target.innerText === correctAnswer) {
+          scores += 1 
+        }if (index + 1 < questions.length) {
+          counter = 61;
+          getQuestion(index + 1);
+        }
+        if (index === questions.length - 1) {
+          cleanQuestion();
+          const result = document.querySelector("#result");
+          result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!`;
+        }
+        getQuestion (x)
+     }
+
+
+
+
+    
