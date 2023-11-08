@@ -99,12 +99,12 @@
     ];
 let punteggio = 0
     //Devo vedere se il mio input include la risposta corretta del mio array 
-     const responseHandler = function (event,correntAnswer,index){
-        if (event.target.innerText === correntAnswer) {
+      const responseHandler = function (event,correctAnswer,index){
+        if (event.target.innerText === correctAnswer) {
           punteggio += 1 
         }
         getQuestion (x)
-      }
+     }
 
 
 
