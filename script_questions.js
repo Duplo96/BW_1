@@ -118,6 +118,8 @@ const cleanQuestion = function () {
   const q = document.querySelector("#questions");
   const op = document.querySelector("#options");
   const timerCont = document.querySelector(".timer-container");
+  const quizCont = document.querySelector(".quiz__counter");
+  quizCont.innerHTML = "";
   q.innerHTML = "";
   op.innerHTML = "";
   timerCont.style.display = "none";
@@ -167,6 +169,9 @@ const getQuestion = function (x) {
   // for (let y = 0; y < questions[x].incorrect_answers.length; y++) {
   //   op.innerHTML += `<button onclick="responseHandler(event,'${questions[x].correct_answer}',${x})">${questions[x].incorrect_answers[y]}</button>`;
   // }
+  //QUESTION 1 / 10 quiz__counter
+  const quizCont = document.querySelector(".quiz__counter");
+  quizCont.innerHTML = `QUESTION ${x+1} / ${questions.length}`;
 };
 
 if (questions.length > 0) {
