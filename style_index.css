@@ -1,6 +1,6 @@
 body {
   background-image: url(assets/bg.jpg);
-  background-size: contain; /* Imposta la dimensione dell'immagine per coprire l'intera area del contenuto */
+  background-size: cover; /* Imposta la dimensione dell'immagine per coprire l'intera area del contenuto */
   background-repeat: no-repeat;
   margin-inline: 350px;
   margin-top: 100px;
