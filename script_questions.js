@@ -94,19 +94,21 @@ const questions = [
   },
 ];
 
-const timerElem = document.querySelector("#timer");
+const timerElem = document.querySelector("#second");
+const anim = document.querySelector("#timer");
 let counter = 60;
 timerElem.innerText = counter;
 
 const timer = function () {
-  if (counter === 60) timerElem.classList.add("animation");
+  if (counter === 60) 
+   anim.classList.add("animation");
   counter -= 1;
   timerElem.innerText = counter;
   if (counter === 0) {
     counter = 60;
     //clearInterval(t);
     timerElem.innerText = counter;
-    timerElem.classList.remove("animation");
+    anim.classList.remove("animation");
   }
 };
 
