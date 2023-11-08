@@ -1,19 +1,14 @@
 body {
   background-image: url(assets/bg.jpg);
   background-size: contain; /* Imposta la dimensione dell'immagine per coprire l'intera area del contenuto */
-  background-repeat: no-repeat; 
-
+  background-repeat: no-repeat;
   margin-inline: 350px;
   margin-top: 100px;
   display: flex;
   flex-direction: column;
   gap: 60px;
-align-items: flex-start;
-
-
+  align-items: flex-start;
 }
-
-
 
 h1,
 h2,
@@ -33,7 +28,7 @@ h1 {
 h2 {
   font-weight: 700;
   font-size: 30px;
-  color: #C2128D;
+  color: #c2128d;
   margin-bottom: 0;
 }
 ul {
@@ -57,18 +52,17 @@ li {
 .proceed__area {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   width: 100%;
   color: white;
-  
 }
 button {
   padding-inline: 50px;
   padding-block: 20px;
-  background-color: #01FFFF;
+  background-color: #01ffff;
   color: black;
   border: none;
 }
 button:hover {
-  box-shadow: 0px 0px 20px 5px rgba(1,255,255,0.75);
+  box-shadow: 0px 0px 20px 5px rgba(1, 255, 255, 0.75);
 }
