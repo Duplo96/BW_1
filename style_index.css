@@ -1,17 +1,6 @@
 body {
   background-color: violet;
-  margin-left: 300px;
-  margin-right: 300px;
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-align-items: flex-start;
-
-
 }
-
-
 
 h1,
 h2,
@@ -23,46 +12,18 @@ button {
 h1 {
   font-weight: 600;
   font-size: 60px;
-  margin: 0;
-  line-height: 50px;
 }
 
 h2 {
   font-weight: 700;
   font-size: 30px;
-  color: #C2128D;
-  margin-bottom: 0;
 }
-ul {
-  margin: 0;
-}
-p {
-  margin-bottom: 40px;
-}
+
 p,
 li {
   font-family: "Inter";
-  margin-top: 0;
 }
 
 #logo {
   height: 50px;
-  width: 200px;
-}
-.proceed__area {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; 
-  width: 100%;
-  
-}
-button {
-  padding-inline: 50px;
-  padding-block: 20px;
-  background-color: #01FFFF;
-  color: black;
-  border: none;
-}
-button:hover {
-  box-shadow: 0px 0px 30px 10px rgba(1,255,255,0.75);
 }
