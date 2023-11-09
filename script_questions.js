@@ -131,6 +131,7 @@ const cleanQuestion = function () {
 let scores = 0;
 
 const responseHandler = function (ev, response, index) {
+  const result = document.querySelector("#result");
   if (response === ev.target.innerText) {
     scores += 1;
   }
@@ -140,8 +141,8 @@ const responseHandler = function (ev, response, index) {
   }
   if (index === questions.length - 1) {
     cleanQuestion();
-    const result = document.querySelector("#result");
     result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!`;
+    result.style = "margin-top: 100px";
   }
 };
 
