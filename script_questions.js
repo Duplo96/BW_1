@@ -164,7 +164,7 @@ const getQuestion = function (x) {
     op.innerHTML += shuffledArray[y];
   }
   const quizCont = document.querySelector(".quiz__counter");
-  quizCont.innerHTML = `QUESTION ${x + 1} / ${questions.length}`;
+  quizCont.innerHTML = `QUESTION ${x + 1} <span>/ ${questions.length}</span>`;
 };
 
 if (questions.length > 0) {

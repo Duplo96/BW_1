@@ -2,8 +2,11 @@ body {
   background-image: url(assets/bg.jpg);
   background-size: cover; /* Imposta la dimensione dell'immagine per coprire l'intera area del contenuto */
   background-repeat: no-repeat;
-  margin-inline: 550px;
-  margin-top: 150px;
+  /* margin-inline: 550px;
+  margin-top: 150px; */
+  padding: 30px;
+  margin: 50px;
+  max-width: 70%;
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -15,6 +18,8 @@ h2,
 label,
 button {
   font-family: "outfit";
+  font-size: 22px;
+  font-weight: bold;
 }
 
 h1 {
