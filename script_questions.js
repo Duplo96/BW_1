@@ -100,17 +100,25 @@ const questions = [
 
 const timerElem = document.querySelector("#second");
 const anim = document.querySelector("#timer");
-let counter = 60;
+let counter = 5;
 timerElem.innerText = counter;
 
 const timer = function () {
-  if (counter === 60) anim.classList.add("animation");
+  if (counter === 5) anim.classList.add("animation");
   counter -= 1;
   timerElem.innerText = counter;
   if (counter === 0) {
-    counter = 60;
+    counter = 5;
     timerElem.innerText = counter;
-    anim.classList.remove("animation");
+    if(nextIndex<questions.length){
+     getQuestion(nextIndex);
+    } else {
+     //anim.classList.remove("animation");
+     cleanQuestion();
+     const result = document.querySelector("#result");
+     result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!`;
+     result.style = "margin-top: 200px";
+    }
   }
 };
 
@@ -136,16 +144,17 @@ const responseHandler = function (ev, response, index) {
     scores += 1;
   }
   if (index + 1 < questions.length) {
-    counter = 61;
+    counter = 6;
     getQuestion(index + 1);
   }
   if (index === questions.length - 1) {
     cleanQuestion();
     result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!`;
-    result.style = "margin-top: 100px";
+    result.style = "margin-top: 200px";
   }
 };
 
+let nextIndex=0;
 const getQuestion = function (x) {
   const button = [];
   const q = document.querySelector("#questions");
@@ -166,6 +175,7 @@ const getQuestion = function (x) {
   }
   const quizCont = document.querySelector(".quiz__counter");
   quizCont.innerHTML = `QUESTION ${x + 1} <span>/ ${questions.length}</span>`;
+  nextIndex += 1;
 };
 
 if (questions.length > 0) {
