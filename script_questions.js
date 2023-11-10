@@ -147,9 +147,13 @@ const responseHandler = function (ev, response, index) {
     counter = 6;
     getQuestion(index + 1);
   }
-  if (index === questions.length - 1) {
-    cleanQuestion();
-    result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!`;
+  if(scores > 5 && index === questions.length - 1 ){
+    cleanQuestion()
+    result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!<br> Hai superato l'esame`
+    result.style = "margin-top: 200px";
+  }if(scores < 5 && index === questions.length - 1){
+    cleanQuestion()
+    result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!<br>  Non hai superato l'esame `
     result.style = "margin-top: 200px";
   }
 };
