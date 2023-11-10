@@ -117,6 +117,7 @@ const timer = function () {
      cleanQuestion();
      const result = document.querySelector("#result");
      result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!`;
+     result.innerHTML += scores>5 ? "<br>Complimenti! Hai superato l'esame!" : "<br>Peccato! Non hai superato l'esame!";
      result.style = "margin-top: 200px";
     }
   }
@@ -149,11 +150,11 @@ const responseHandler = function (ev, response, index) {
   }
   if(scores > 5 && index === questions.length - 1 ){
     cleanQuestion()
-    result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!<br> Hai superato l'esame`
+    result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!<br>Complimenti! Hai superato l'esame!`
     result.style = "margin-top: 200px";
-  }if(scores < 5 && index === questions.length - 1){
+  }if(scores <= 5 && index === questions.length - 1){
     cleanQuestion()
-    result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!<br>  Non hai superato l'esame `
+    result.innerHTML = `Quiz completato! Hai ottenuto un punteggio pari a <span>${scores}</span>!<br>Peccato! Non hai superato l'esame!`
     result.style = "margin-top: 200px";
   }
 };
